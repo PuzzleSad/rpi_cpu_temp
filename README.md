@@ -3,6 +3,7 @@ A small C program to read the cpu temperature on a raspberry pi. It includes som
 
 # TO BUILD
 mkdir build
+
 make
 
 The provided example.c should contain an extremely simplistic implementation of the library

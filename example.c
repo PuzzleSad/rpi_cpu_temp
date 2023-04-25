@@ -9,9 +9,14 @@ int main(){
         // cpu_temp_init( &ct, "/sys/class/thermal/sensors/w1" );
         cpu_temp_init( &ct, NULL );
 
-        printf("Temp: %d\n", cpu_get_temp( &ct ) );
-        sleep(1);
-        printf("Temp: %d\n", ct.get_temp(&ct) );
+
+
+
+        printf("Serial num: %s\n", ct.cpu_serial);
+
+        // printf("Temp: %d\n", cpu_get_temp( &ct ) );
+        // // sleep(1);
+        // printf("Temp: %d\n", ct.get_temp(&ct) );
 
         cpu_temp_fini( &ct );
 }

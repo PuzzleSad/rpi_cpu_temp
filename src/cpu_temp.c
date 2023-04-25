@@ -1,5 +1,6 @@
 #include "../cpu_temp.h"
 #include "file_find.h"
+#include "cpu_serial.h"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -25,6 +26,12 @@ int cpu_temp_init( cpu_temp_t* ct, char* path ){
                 write_path( ct, path );
         }
 
+        if( write_cpu_serial( &ct->cpu_serial ) != EXIT_SUCCESS ){
+                return EXIT_FAILURE;
+        }
+
+
+
         ct->get_temp = cpu_get_temp;
 
         return EXIT_SUCCESS;
@@ -32,6 +39,7 @@ int cpu_temp_init( cpu_temp_t* ct, char* path ){
 
 int cpu_temp_fini( cpu_temp_t *ct ){
         free(ct->path);
+        free(ct->cpu_serial);
 
         return EXIT_SUCCESS;
 }

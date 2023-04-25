@@ -7,6 +7,7 @@ typedef struct cpu_temp_t cpu_temp_t;
 
 struct cpu_temp_t{
         char* path;
+        char* cpu_serial;
         int32_t (*get_temp)( cpu_temp_t* ct );
 };
 
